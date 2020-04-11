@@ -1,4 +1,44 @@
 var data;
+/*
+The Keys and Copy of the data stores so that new fields can be generated
+*/
+const keys = {
+    "socials": {
+        "icon": "",
+        "link": ""
+    },
+    "skills": {
+        "name": "",
+        "icon": "",
+        "description": ""
+    },
+    "education": {
+        "name": "",
+        "authority": "",
+        "level": "",
+        "years": "",
+        "grade": ""
+    },
+    "experience": {
+        "name": "",
+        "place": "",
+        "position": "",
+        "years": "",
+        "description": ""
+    },
+    "projects": {
+        "name": "",
+        "description": "",
+        "link": "",
+        "image": ""
+    },
+    "extras": {
+        "name": "",
+        "icon": "",
+        "description": ""
+    }
+}
+
 fetch("../data.json")
     .then(e => e.json())
     .then(e => {
@@ -7,7 +47,11 @@ fetch("../data.json")
         initMaterial();
     })
 
-
+/*
+@PARAM Null
+send a request with the whole new and updated user Data to app.php file
+which updates the data.json file with the new data
+*/
 const update = () => {
     //    let link = "../app.php?update=true&data=" + encodeURI(JSON.stringify(data.$data));
     console.log(data.$data.user)
@@ -17,28 +61,24 @@ const update = () => {
     //        .then(e => e.text())
     //        .then(e => console.log(JSON.parse(e)))
 }
-
+/*
+@param field[string] this string represents the key in the user object
+this creates an empty object with keys copied from keys variable
+*/
 const addField = (field) => {
-    let d = {}
-    Object
-        .keys(data
-            .$data
-            .user[field][0]
-        )
-        .forEach(key => {
-            d[key] = ""
-        })
-    data.$data.user[field].push(d)
+    data.$data.user[field].push(keys[field])
     initMaterial()
 }
-
+/*
+@param component[string] : the key used to represents the object in the main data
+@param index[int] : the index used to represents the objects index that is to be deleted from the component
+*/
 const removeComponent = (component, index) => {
     data.$data.user[component] = data.$data.user[component]
         .filter((comp, i) => {
             return i != index
         })
 }
-
 /*
     @param null
     this function initializes all required material components

@@ -83,7 +83,7 @@
                     </a>
                 </li>
                 <li class="tab sidenav-close">
-                    <a href="#extras" class="active">
+                    <a href="#extras">
                         <i class="material-icons">more_vert</i>
                         Extras
                     </a>
