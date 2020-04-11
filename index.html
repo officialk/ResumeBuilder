@@ -1,0 +1,252 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Karthik Koppaka</title>
+    <meta name="author" content="Karthik Koppaka">
+    <meta name="description" content="Karthik Koppaka Resume">
+    <meta name="keywords" content="" />
+    <meta name="theme" content="{{system.theme}}">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="manifest" href="manifest.json" />
+
+    <link rel="stylesheet" href="css/material.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <script src="js/vue.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/material.js"></script>
+    <script src="js/app.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <nav class="nav-extended theme">
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo center">{{user.name}}</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger hide-on-med-and-up"><i class="material-icons">menu</i></a>
+                </div>
+                <div class="nav-content hide-on-small-only">
+                    <ul class="tabs tabs-transparent tabs-fixed-width">
+                        <li class="tab"><a href="#aboutme">About Me</a></li>
+                        <li class="tab" v-if="user.skills.length>0"><a href="#skills">Skills</a></li>
+                        <li class="tab" v-if="user.education.length>0"><a href="#education">Education</a></li>
+                        <li class="tab" v-if="user.experience.length>0"><a href="#experience">Experience</a></li>
+                        <li class="tab" v-if="user.projects.length>0"><a href="#projects">Projects</a></li>
+                        <li class="tab" v-if="user.extras.length>0"><a href="#extras">Extras</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <ul class="sidenav" id="mobile-demo">
+                <li class="sidenav-close">
+                    <a href="#">
+                        <i class="material-icons">close</i>
+                    </a>
+                </li>
+                <li class="tab sidenav-close">
+                    <a href="#aboutme">
+                        <i class="material-icons">face</i>
+                        About Me
+                    </a>
+                </li>
+                <li class="tab sidenav-close" v-if="user.skills.length>0">
+                    <a href="#skills">
+                        <i class="material-icons">fitness_center</i>
+                        Skills
+                    </a>
+                </li>
+                <li class="tab sidenav-close" v-if="user.education.length>0">
+                    <a href="#education">
+                        <i class="material-icons">book</i>
+                        Education
+                    </a>
+                </li>
+                <li class="tab sidenav-close" v-if="user.experience.length>0">
+                    <a href="#experience">
+                        <i class="material-icons">business_center</i>
+                        Experience
+                    </a>
+                </li>
+                <li class="tab sidenav-close" v-if="user.projects.length>0">
+                    <a href="#projects">
+                        <i class="material-icons">dashboard</i>
+                        Projects
+                    </a>
+                </li>
+                <li class="tab sidenav-close" v-if="user.extras.length>0">
+                    <a href="#extras">
+                        <i class="material-icons">more_vert</i>
+                        Extras
+                    </a>
+                </li>
+            </ul>
+        </header>
+        <main class="row container">
+            <div id="aboutme">
+                <h4 class="center">About Me</h4>
+                <div class="card-panel theme fullHeight">
+                    <div class="col s12 m6 l4 center">
+                        <img v-bind:src="user.image" width="100%">
+                    </div>
+                    <div class="col s12 m6 l8">
+                        <p class="flow-text center">
+                            {{user.name}}
+                        </p>
+                        <p>
+                            {{user.description}}
+                        </p>
+                    </div>
+
+                    <div class="col s12 m12 l12 card-action">
+                        <br>
+                        <div class="col s3 m2 l1" v-for='link in user.socials'>
+                            <a class="circle" v-bind:href="link.link" target="_blank">
+                                <img v-bind:src="link.icon" height="40px" width="40px">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div v-if="user.skills.length>0" id="skills">
+                <h4 class="center">Skills</h4>
+                <ul class="collection">
+                    <li class="collection-item avatar" v-for="skill in user.skills">
+                        <img v-bind:src="skill.icon" v-bind:alt="skill.name+'image'" class="circle">
+                        <span class="title flow-text">{{skill.name}}</span>
+                        <p>
+                            {{skill.description}}
+                        </p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                    </li>
+                </ul>
+            </div>
+            <div v-if="user.education.length>0" id="education">
+                <h4 class="center">Education</h4>
+                <div class="row" v-for="(edu,i) in user.education">
+                    <div class="hide-on-med-and-up col s12 flow-text">
+                        <div class="col s12 btn-flat theme center">
+                            {{edu.years}}
+                        </div>
+                    </div>
+                    <div v-if="i%2==0" class="col m5 l6 flow-text valign-wrapper hide-on-small-only">
+                        <div class="col s12 m4 l4"></div>
+                        <div class="col s12 m4 l4 btn-flat theme center">
+                            {{edu.years}}
+                        </div>
+                        <div class="col s12 m4 l4"></div>
+                    </div>
+                    <div class="col s12 m7 l6">
+                        <div class="card">
+                            <div class="card horizontal theme">
+                                <div class="card-image valign-wrapper">
+                                    <i class="material-icons large prefix">
+                                        domain
+                                    </i>
+                                </div>
+                                <div class="card-stacked">
+                                    <div class="card-title center">
+                                        <b>
+                                            {{edu.name}}
+                                        </b>
+                                    </div>
+                                    <div class="card-content">
+                                        <b>
+                                            {{edu.authority}}
+                                        </b>
+                                        <br>
+                                        {{edu.level}}
+                                        <br>
+                                        <i class="right flow-text">{{edu.grade}}</i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div v-if="i%2==1" class="col m5 l6 flow-text valign-wrapper hide-on-small-only">
+                        <div class="col s12 m4 l4"></div>
+                        <div class="col s12 m4 l4 btn-flat theme center">
+                            {{edu.years}}
+                        </div>
+                        <div class="col s12 m4 l4"></div>
+                    </div>
+                </div>
+            </div>
+            <div v-if="user.experience.length>0" id="experience">
+                <h4 class="center">Work Experience</h4>
+                <ul class="collapsible popout">
+                    <li v-for="exp in user.experience">
+                        <div class="collapsible-header">
+                            <span class="col s12 m6 l8">
+                                <i class="material-icons">business_center</i>
+                                {{exp.name}}, {{exp.place}}
+                            </span>
+                            <span class="col s12 m6 l8">
+                                <span class="right">{{exp.years}}</span>
+                            </span>
+                        </div>
+                        <div class="collapsible-body">
+                            <b>Worked as ::{{exp.position}}</b>
+                            <br>
+                            <span>{{exp.description}}</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div v-if="user.projects.length>0" id="projects">
+                <h4 class="center">Projects</h4>
+                <div class="col s12 m4 l4" v-for="project in user.projects">
+                    <div class="card sticky-action">
+                        <div class="card-image">
+                            <img class="activator" v-bind:src="project.image">
+                        </div>
+                        <span class="card-title center">
+                            <span class="truncate">{{project.name}}</span>
+                        </span>
+                        <div class="card-content center">
+                            <a class="btn-floating theme activator left">
+                                <i class="material-icons">info</i>
+                            </a>
+                            <a class="btn-floating theme right" v-if="project.link" v-bind:href="project.link" target="_blank">
+                                <i class="material-icons">remove_red_eye</i>
+                            </a>
+                            <br>
+                            <br>
+                        </div>
+                        <div class="card-reveal black-text">
+                            <span class="card-title grey-text text-darken-4 truncate">
+                                <i class="material-icons right">close</i>
+                                {{project.name}}
+                            </span>
+                            <p>{{project.description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div v-if="user.extras.length>0" id="extras">
+                <h4 class="center">Extras</h4>
+                <a class="col s12 m4 l4" v-for="ext in user.extras">
+                    <div class="card">
+                        <div class="card-title center">
+                            <div class="card-image small">
+                                <img v-bind:src="ext.icon">
+                            </div>
+                            {{ext.name}}
+                        </div>
+                        <div class="card-content theme">
+                            {{ext.description}}
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </main>
+        <footer>
+
+        </footer>
+    </div>
+</body>
+
+</html>

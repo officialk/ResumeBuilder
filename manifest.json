@@ -1,0 +1,10 @@
+{
+    "name": "Resume",
+    "short_name": "Resume",
+    "theme_color": "#6426bb",
+    "background_color": "#6426bb",
+    "display": "minimal-ui",
+    "orientation": "portrait",
+    "scope": "/",
+    "start_url": "/"
+}
