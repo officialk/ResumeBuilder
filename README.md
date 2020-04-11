@@ -2,6 +2,22 @@
 
 Resume Builder is a simple Web application which lets you create a resume website and also manage it without the hassles of databases and file management
 on top of this you can also customize the look and feel of your site as you want. If you have a better design/idea go ahead and make changes and add a pull request cause this is an open-source project
+## You can help too by
+- Creation or Correction of
+  - Language
+  - Documentation
+- Coding for
+  - UI/UX changes
+  - UI templates
+  - Feature Improvements
+  - Adding features
+  - Security improvements
+  - Efficiency
+- Reporting or Suggesting
+  - issues
+  - features
+- Sharing about us
+
 ## Installation
 
 Simply git clone it into your workspace to begin working
