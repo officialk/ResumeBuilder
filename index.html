@@ -7,7 +7,6 @@
     <meta name="author" content="Karthik Koppaka">
     <meta name="description" content="Karthik Koppaka Resume">
     <meta name="keywords" content="" />
-    <meta name="theme" content="{{system.theme}}">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="manifest" href="manifest.json" />
 
@@ -210,7 +209,7 @@
                             <a class="btn-floating theme activator left">
                                 <i class="material-icons">info</i>
                             </a>
-                            <a class="btn-floating theme right" v-if="project.link" v-bind:href="project.link" target="_blank">
+                            <a class="btn-floating theme right" v-if="project.link && project.link!=''" v-bind:href="project.link" target="_blank">
                                 <i class="material-icons">remove_red_eye</i>
                             </a>
                             <br>
