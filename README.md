@@ -62,7 +62,7 @@ Please make sure to update the tests as appropriate.
 - [X] created the basic template(main index.html file)
 - [X] initialized and setup vue.js,materializecss
 - [X] created admin panel UI for easier data management
-- [ ] manipulate data.json file using app.php
+- [X] manipulate data.json file using app.php
 - [ ] convert to pwa
 - [ ] custom user themes folder where anyone can add themes to be used by anyone
 - [ ] changeable themes
