@@ -19,14 +19,14 @@
     <link rel="stylesheet" href="../css/material.css">
     <link rel="stylesheet" href="../css/app.css">
 
-    <script src="../js/vue.js"></script>
     <script src="../js/jquery.js"></script>
     <script src="../js/material.js"></script>
+    <script src="../js/vue.js"></script>
     <script src="app.js"></script>
 
 </head>
 
-<body>
+<body onload="initMaterial()">
     <div id="app">
         <header>
             <nav class="nav-extended theme">
@@ -36,7 +36,7 @@
                 </div>
                 <div class="nav-content hide-on-small-only">
                     <ul class="tabs tabs-transparent tabs-fixed-width">
-                        <li class="tab"><a href="#aboutme">About Me</a></li>
+                        <li class="tab"><a class="active" href="#aboutme">About Me</a></li>
                         <li class="tab"><a href="#skills">Skills</a></li>
                         <li class="tab"><a href="#education">Education</a></li>
                         <li class="tab"><a href="#experience">Experience</a></li>

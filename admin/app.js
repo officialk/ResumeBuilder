@@ -42,7 +42,6 @@ const keys = {
 fetch("../data.json")
     .then(e => e.json())
     .then(e => {
-        data = e
         initVue(e);
         initMaterial();
     })
@@ -60,7 +59,7 @@ const update = () => {
                     .$data)
             )
             .replace(/\&/g, ">>")
-            .replace(/\?/g, ">>")
+            .replace(/\?/g, "<<")
         );
     fetch(link)
         .then(e => e.text())
@@ -95,12 +94,11 @@ const removeComponent = (component, index) => {
     this function initializes all required material components
 */
 const initMaterial = () => {
-    $('.sidenav').sidenav();
-    $('.tabs').tabs();
-    $('#mobile-demo').tabs();
     M.updateTextFields()
+    $('.sidenav').sidenav();
+    $('#mobile-demo').tabs();
+    $('.tabs').tabs();
 }
-
 /*
 @param [Object]:this is the data object retrieved fo the data.json file and feed to the Vue component
 this function initializes the Vue Object and its componencts with the data provided so that we can display stuff easily in the front end
@@ -112,7 +110,6 @@ const initVue = d => {
             user: d.user,
         }
     })
-    initMaterial()
 }
 
 $(document).ready(e => {

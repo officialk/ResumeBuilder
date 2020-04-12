@@ -11,13 +11,17 @@
             header("Location: admin/?user=$user");
         }
         else{
-            header("Location: index.html");
+            $_SESSION['user']="";
+            header("Location:./");
         }
     }
     elseif(isset($_REQUEST['update'])){
         $myfile = fopen("data.json", "w") or die("Unable to open file!");
-        fwrite($myfile,$_REQUEST["data"]);
+        fwrite($myfile,str_replace(array(">>","<<"),array("&","?"),$_REQUEST["data"]));
         fclose($myfile);
         echo "done";
+    }
+    else{
+        header("Location:./");
     }
 ?>
