@@ -63,6 +63,6 @@ Please make sure to update the tests as appropriate.
 - [X] initialized and setup vue.js,materializecss
 - [X] created admin panel UI for easier data management
 - [X] manipulate data.json file using app.php
-- [ ] convert to pwa
+- [X] convert to pwa
 - [ ] custom user themes folder where anyone can add themes to be used by anyone
 - [ ] changeable themes
