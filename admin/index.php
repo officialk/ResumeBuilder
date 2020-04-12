@@ -1,7 +1,8 @@
 <?php
     session_start();
-    if($_SESSION['user']!=$_REQUEST['user']){
+    if($_SESSION['user']!=$_REQUEST['user'] || !isset($_SESSION['user'])){
         header("Location: login.html");
+        echo "<script>window.href='login.html'</script>";
     }
 ?>
 <html>

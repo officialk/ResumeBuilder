@@ -2,6 +2,7 @@ var app;
 fetch("data.json")
     .then(e => e.json())
     .then(data => {
+        initPWA()
         initVue(data)
         initMaterial()
     })
@@ -27,4 +28,16 @@ const initMaterial = () => {
     $('#mobile-demo').tabs();
     $('.collapsible').collapsible();
     $('.carousel').carousel();
+}
+
+/*
+    @param null
+    initializes the service worker for PWA
+*/
+const initPWA = () => {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js', {
+            scope: './'
+        })
+    }
 }
