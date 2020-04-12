@@ -15,6 +15,9 @@
         }
     }
     elseif(isset($_REQUEST['update'])){
-        echo $_REQUEST['data'];
+        $myfile = fopen("data.json", "w") or die("Unable to open file!");
+        fwrite($myfile,$_REQUEST["data"]);
+        fclose($myfile);
+        echo "done";
     }
 ?>

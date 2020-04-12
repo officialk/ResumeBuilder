@@ -53,13 +53,24 @@ send a request with the whole new and updated user Data to app.php file
 which updates the data.json file with the new data
 */
 const update = () => {
-    //    let link = "../app.php?update=true&data=" + encodeURI(JSON.stringify(data.$data));
-    console.log(data.$data.user)
-    //    fetch(link, {
-    //            method: "get",
-    //        })
-    //        .then(e => e.text())
-    //        .then(e => console.log(JSON.parse(e)))
+    let link = "../app.php?update=true&data=" +
+        (encodeURI(
+                JSON
+                .stringify(data
+                    .$data)
+            )
+            .replace(/\&/g, ">>")
+            .replace(/\?/g, ">>")
+        );
+    fetch(link)
+        .then(e => e.text())
+        .then(e => {
+            if (e == "done") {
+                alert("Data Saved")
+            } else {
+                alert("Data Not Saved!!\n Please Try Again")
+            }
+        })
 }
 /*
 @param field[string] this string represents the key in the user object
